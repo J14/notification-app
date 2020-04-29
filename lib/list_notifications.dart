@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:random_string/random_string.dart';
 
-
-class Notification {
-
-  String title;
-  String body;
-  bool isActive = true;
-  bool isChecked = false;
-
-  Notification({this.title, this.body, this.isActive, this.isChecked});
-}
-
+import 'package:notification_app/notification.dart';
 
 
 class NotificationsListWidget extends StatefulWidget {
