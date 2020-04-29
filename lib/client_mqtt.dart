@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-import 'package:notification_app/notification.dart' as notification;
+import 'package:notification_app/notification.dart';
 
-final client = MqttServerClient('server', 'clientID');
+final client = MqttServerClient('192.168.1.15', '1');
 
 Future<void> runMqttServerClient(BuildContext context) async {
-  notification.Notification notify = notification.Notification(context);
+  LocalNotification notify = LocalNotification(context);
 
   client.autoReconnect = true;
 

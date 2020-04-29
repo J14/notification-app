@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-class Notification {
+class LocalNotification {
   BuildContext context;
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
-  Notification(this.context) {
+  LocalNotification(this.context) {
     var initializationSettingsAndroid =
       AndroidInitializationSettings('@mipmap/ic_launcher');
 
