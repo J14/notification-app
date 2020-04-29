@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:random_string/random_string.dart';
 
-import 'package:notification_app/notification.dart';
+import 'package:notification_app/notification.dart' as notification;
 
 
 class NotificationsListWidget extends StatefulWidget {
@@ -12,12 +12,12 @@ class NotificationsListWidget extends StatefulWidget {
 }
 
 class _NotificationsListWidgetState extends State<NotificationsListWidget> {
-  List notifications = <List<Notification>>[];
+  List notifications = <List<notification.Notification>>[];
 
-  List<Notification> _generateRandomNotifications(int total) {
-    List notifications = new List<Notification>.generate(
+  List<notification.Notification> _generateRandomNotifications(int total) {
+    List notifications = new List<notification.Notification>.generate(
       total, (i) {
-        var n = Notification(
+        var n = notification.Notification(
           title: randomString(10),
           body: randomString(20),
           isChecked: false,
@@ -67,7 +67,7 @@ class _NotificationsListWidgetState extends State<NotificationsListWidget> {
                     ));
               },
               background: DismissBackground(),
-              child: NotificationCardWidget(notification: item),
+              child: NotificationCardWidget(notificationData: item),
             );
           },
         ),
@@ -78,9 +78,9 @@ class _NotificationsListWidgetState extends State<NotificationsListWidget> {
 
 
 class NotificationCardWidget extends StatefulWidget {
-  final Notification notification;
+  final notification.Notification notificationData;
 
-  NotificationCardWidget({Key key, this.notification}) : super(key: key);
+  NotificationCardWidget({Key key, this.notificationData}) : super(key: key);
 
   @override
   _NotificationCardWidgetState createState() => _NotificationCardWidgetState();
@@ -92,17 +92,17 @@ class _NotificationCardWidgetState extends State<NotificationCardWidget> {
     return Card(
       child: ListTile(
         leading: FlutterLogo(),
-        title: Text(widget.notification.title),
-        subtitle: Text(widget.notification.body),
+        title: Text(widget.notificationData.title),
+        subtitle: Text(widget.notificationData.body),
         onTap: () {
         showDialog(
           context: context,
           builder: (BuildContext context) {
           return AlertDialog(
-              title: Text(widget.notification.title),
+              title: Text(widget.notificationData.title),
               content: Container(
                 width: double.maxFinite,
-                child: Text(widget.notification.body)
+                child: Text(widget.notificationData.body)
               ),
           );
           }
