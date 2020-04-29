@@ -105,6 +105,18 @@ class _NotificationCardWidgetState extends State<NotificationCardWidget> {
         title: Text(widget.notification.title),
         subtitle: Text(widget.notification.body),
         onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+          return AlertDialog(
+              title: Text(widget.notification.title),
+              content: Container(
+                width: double.maxFinite,
+                child: Text(widget.notification.body)
+              ),
+          );
+          }
+        );
         },
       ),
     );
