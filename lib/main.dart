@@ -10,7 +10,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // runMqttServerClient(context);
+    runMqttServerClient(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -7,7 +7,7 @@ import 'package:mqtt_client/mqtt_server_client.dart';
 
 import 'package:notification_app/local_notification.dart';
 
-final client = MqttServerClient('192.168.1.15', '1');
+final client = MqttServerClient('server', 'clientID');
 
 Future<void> runMqttServerClient(BuildContext context) async {
   LocalNotification notify = LocalNotification(context);
