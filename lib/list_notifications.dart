@@ -71,9 +71,12 @@ class _NotificationsListWidgetState extends State<NotificationsListWidget> {
                 });
 
                 Scaffold.of(context)
-                    .showSnackBar(SnackBar(content: Text("${item.title} dismissed")));
+                    .showSnackBar(SnackBar(
+                      content: Text("Notificação removida", style: TextStyle(fontSize: 15),),
+                      backgroundColor: Colors.blueAccent,
+                    ));
               },
-              background: Container(color: Colors.blue),
+              background: DismissBackground(),
               child: NotificationCardWidget(notification: item),
             );
           },
@@ -104,6 +107,26 @@ class _NotificationCardWidgetState extends State<NotificationCardWidget> {
         onTap: () {
         },
       ),
+    );
+  }
+}
+
+class DismissBackground extends StatelessWidget {
+  const DismissBackground({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: Text(
+        'Removendo notificação',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white
+        ),
+      )),
+      color: Colors.redAccent,
     );
   }
 }
