@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:notification_app/client_mqtt.dart';
+import 'package:notification_app/list_notifications.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: NotificationsListWidget(),
     );
   }
 }
